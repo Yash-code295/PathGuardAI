@@ -5,8 +5,8 @@ from model import get_model
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = ROOT / "models" / "road_unet.pth"
+ROOT = Path(__file__).resolve().parent
+MODEL_PATH = ROOT / "road_unet.pth"
 UPLOADS = ROOT / "backend" / "uploads"
 OUT = ROOT / "outputs"
 
