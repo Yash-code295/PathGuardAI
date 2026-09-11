@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "http://127.0.0.1:5000";
+const API = "https://pathguardai.onrender.com";
 
 export default function App() {
   const [file, setFile] = useState(null);
