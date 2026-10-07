@@ -1,0 +1,13 @@
+flask
+flask-cors
+gunicorn
+torch
+torchvision
+segmentation-models-pytorch
+opencv-python-headless
+matplotlib
+networkx
+scikit-image
+numpy
+pillow
+tqdm
