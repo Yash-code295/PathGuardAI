@@ -6,21 +6,27 @@ import subprocess
 import sys
 
 
-app = Flask(__name__)
-CORS(app)
-
-
 # =========================================
 # PATHS
 # =========================================
 
 BASE_DIR = Path(__file__).resolve().parent
+FRONTEND_DIST = BASE_DIR.parent / "frontend" / "dist"
 
 UPLOAD_FOLDER = BASE_DIR / "uploads"
 OUTPUT_FOLDER = BASE_DIR.parent / "outputs"
 
 UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
 OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
+
+
+# Serve the built Vite assets from the same Render web service.
+app = Flask(
+    __name__,
+    static_folder=str(FRONTEND_DIST),
+    static_url_path=""
+)
+CORS(app)
 
 
 # =========================================
@@ -162,9 +168,13 @@ def run_script(script_name):
 
 @app.route("/")
 def home():
+    index_file = FRONTEND_DIST / "index.html"
+    if index_file.is_file():
+        return send_from_directory(str(FRONTEND_DIST), "index.html")
 
     return jsonify({
-        "message": "PathGuardAI Backend Running"
+        "message": "PathGuardAI Backend Running",
+        "frontend": "Build frontend/dist to enable the web interface"
     })
 
 
