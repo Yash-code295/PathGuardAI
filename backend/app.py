@@ -101,7 +101,7 @@ def run_script(script_name):
         if result.returncode != 0:
 
             print(
-                f"❌ {script_name} FAILED",
+                f"{script_name} FAILED",
                 flush=True
             )
 
@@ -117,7 +117,7 @@ def run_script(script_name):
         # -----------------------------------------
 
         print(
-            f"✅ {script_name} COMPLETED SUCCESSFULLY",
+            f"{script_name} COMPLETED SUCCESSFULLY",
             flush=True
         )
 
@@ -134,7 +134,7 @@ def run_script(script_name):
     except subprocess.TimeoutExpired:
 
         print(
-            f"❌ {script_name} exceeded 170 second timeout.",
+            f"{script_name} exceeded 170 second timeout.",
             flush=True
         )
 
@@ -151,7 +151,7 @@ def run_script(script_name):
     except Exception as e:
 
         print(
-            f"❌ ERROR running {script_name}: {repr(e)}",
+            f"ERROR running {script_name}: {repr(e)}",
             flush=True
         )
 
@@ -204,7 +204,7 @@ def upload():
     file.save(str(save_path))
 
     print(
-        f"✅ Uploaded file: {save_path}",
+        f"Uploaded file: {save_path}",
         flush=True
     )
 
@@ -234,7 +234,7 @@ def serve_outputs(filename):
 @app.route("/predict")
 def predict():
 
-    print("🚀 /predict endpoint called", flush=True)
+    print("/predict endpoint called", flush=True)
 
     result = run_script("predict.py")
 
@@ -250,7 +250,7 @@ def predict():
 @app.route("/criticality")
 def criticality():
 
-    print("🚀 /criticality endpoint called", flush=True)
+    print("/criticality endpoint called", flush=True)
 
     result = run_script("criticality.py")
 
@@ -266,7 +266,7 @@ def criticality():
 @app.route("/simulate")
 def simulate():
 
-    print("🚀 /simulate endpoint called", flush=True)
+    print("/simulate endpoint called", flush=True)
 
     result = run_script("simulation.py")
 
@@ -282,7 +282,7 @@ def simulate():
 @app.route("/route")
 def route():
 
-    print("🚀 /route endpoint called", flush=True)
+    print("/route endpoint called", flush=True)
 
     result = run_script("routing.py")
 
@@ -298,7 +298,7 @@ def route():
 @app.route("/resilience")
 def resilience():
 
-    print("🚀 /resilience endpoint called", flush=True)
+    print("/resilience endpoint called", flush=True)
 
     result = run_script("resilience_score.py")
 
@@ -314,7 +314,7 @@ def resilience():
 @app.route("/recommendation")
 def recommendation():
 
-    print("🚀 /recommendation endpoint called", flush=True)
+    print("/recommendation endpoint called", flush=True)
 
     result = run_script("recommendation.py")
 
